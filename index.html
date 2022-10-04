@@ -9,6 +9,36 @@
     <title>Arcade</title>
   </head>
   <body>
-    <h1>Hello</h1>
+    <div class="nameInput">
+      <!-- insert option for one player vs computer -->
+      <form>
+        Player One:
+        <input type="text" id="playerOne" name="playerOne" /> <br />
+        <br />
+        Player Two: <input type="text" id="playerTwo" name="playerTwo" /> <br />
+        <br />
+        <br />
+        <input type="submit" value="submit" />
+      </form>
+    </div>
+    <div class="scoreContainerPlayer1">X</div>
+    <div class="scoreContainerPlayer2">O</div>
+    <div class="gameboard">
+      <h1 id="gameboardText"></h1>
+      <div id="grid">
+        <div class="cell" id="0"></div>
+        <div class="cell" id="1"></div>
+        <div class="cell" id="2"></div>
+        <div class="cell" id="3"></div>
+        <div class="cell" id="4"></div>
+        <div class="cell" id="5"></div>
+        <div class="cell" id="6"></div>
+        <div class="cell" id="7"></div>
+        <div class="cell" id="8"></div>
+      </div>
+      <div class="container-btm">
+        <button id="restartBtn">Restart Game</button>
+      </div>
+    </div>
   </body>
 </html>
