@@ -5,25 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
-    <script defer src="index.js"></script>
-    <title>Arcade</title>
+    <title>Tic-Tac-Toe</title>
   </head>
   <body>
     <div class="nameInput">
-      <!-- insert option for one player vs computer -->
-      <form>
-        Player One:
-        <input type="text" id="playerOne" name="playerOne" /> <br />
-        <br />
-        Player Two: <input type="text" id="playerTwo" name="playerTwo" /> <br />
-        <br />
-        <br />
-        <input type="submit" value="submit" />
-      </form>
+      <button id="singlePlayer">Single Player</button>
+      <button id="twoPlayer">Multi-Player</button>
     </div>
-    <div class="scoreContainerPlayer1">X</div>
-    <div class="scoreContainerPlayer2">O</div>
-    <div class="gameboard">
+    <div class="topContainer">
+      <h2 id='winningMsg'>Game On!</h2></div>
+    <div class="gameboard"><div>
       <h1 id="gameboardText"></h1>
       <div id="grid">
         <div class="cell" id="0"></div>
@@ -40,5 +31,6 @@
         <button id="restartBtn">Restart Game</button>
       </div>
     </div>
+    <script defer src="index.js"></script>
   </body>
 </html>
