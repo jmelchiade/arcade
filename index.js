@@ -1,8 +1,3 @@
-// let playerName = getElementById("playerOne");
-// userName = document.getElementById("playerOne");
-// document.write("Welcome, " + userName);
-// let gameboardText = document.getElementById("gameboardText");
-
 let winningPlayer = false;
 let draw = false;
 let vsComputer = false;
@@ -10,6 +5,7 @@ let gameOver = false;
 const playerOne = "X";
 const playerTwo = "O";
 let currentPlayer = playerOne;
+let gameMode = false;
 
 //display player name
 
