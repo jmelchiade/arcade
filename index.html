@@ -13,19 +13,31 @@
       <button id="twoPlayer">Multi-Player</button>
     </div>
     <div class="topContainer">
-      <h2 id='winningMsg'>Game On!</h2></div>
-    <div class="gameboard"><div>
-      <h1 id="gameboardText"></h1>
-      <div id="grid">
-        <div class="cell" id="0"></div>
-        <div class="cell" id="1"></div>
-        <div class="cell" id="2"></div>
-        <div class="cell" id="3"></div>
-        <div class="cell" id="4"></div>
-        <div class="cell" id="5"></div>
-        <div class="cell" id="6"></div>
-        <div class="cell" id="7"></div>
-        <div class="cell" id="8"></div>
+      <form id="singlePlayerForm">
+        <label for="spname"></label>
+        <input
+          type="text"
+          id="singlePlayerName"
+          placeholder="Single Player Name"
+        /><br /><br />
+        <button id="formBtn" type="submit">submit</button>
+      </form>
+      <h2 id="winningMsg">Game On!</h2>
+    </div>
+    <div class="gameboardContainer">
+      <div class="gameboard">
+        <h1 id="gameboardText"></h1>
+        <div id="grid">
+          <div class="cell" id="0"></div>
+          <div class="cell" id="1"></div>
+          <div class="cell" id="2"></div>
+          <div class="cell" id="3"></div>
+          <div class="cell" id="4"></div>
+          <div class="cell" id="5"></div>
+          <div class="cell" id="6"></div>
+          <div class="cell" id="7"></div>
+          <div class="cell" id="8"></div>
+        </div>
       </div>
       <div class="container-btm">
         <button id="restartBtn">Restart Game</button>

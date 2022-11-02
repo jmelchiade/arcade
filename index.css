@@ -59,6 +59,10 @@ h2 {
   background-color: rgb(46, 43, 115);
 }
 
+.gameboardContainer {
+  display: none;
+}
+
 .container-btm {
   padding: 21px;
   display: flex;
@@ -90,6 +94,13 @@ button:hover {
   cursor: pointer;
 }
 
+#singlePlayerForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
 #grid {
   width: 450px;
   display: flex;
@@ -114,4 +125,8 @@ button:hover {
 
 .cell:nth-child(n + 4) {
   border-top: 5px solid rgb(33, 84, 179);
+}
+
+#singlePlayerForm {
+  visibility: hidden;
 }

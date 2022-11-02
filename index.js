@@ -1,3 +1,4 @@
+// game variables
 let winningPlayer = false;
 let draw = false;
 let vsComputer = false;
@@ -6,44 +7,80 @@ const playerOne = "X";
 const playerTwo = "O";
 let currentPlayer = playerOne;
 let gameMode = false;
+let trueName = "";
+const winningCells = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 4, 8],
+  [2, 4, 6],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+];
 
-//display player name
+//DOM Variables
+// window.onload = function () {
+//   let username = window.prompt("Enter Player Name");
+//   document.getElementById("winningMsg").innerHTML = "Welcome " + username;
+// };
 
-window.onload = function () {
-  let username = window.prompt("Enter Player Name");
-  document.getElementById("winningMsg").innerHTML = "Welcome " + username;
-};
-
+let singlePlayerForm = document.getElementById("singlePlayerForm");
+let singlePlayerName = document.getElementById("singlePlayerName");
+let formBtn = document.getElementById("formBtn");
 let winMessage = document.getElementById("winningMsg");
+const singlePlayer = document.getElementById("singlePlayer");
+const twoPlayer = document.getElementById("twoPlayer");
+
+singlePlayerForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log("form submitted");
+});
+
+function displayName() {
+  // winMessage.innerHTML = singlePlayerName.
+  trueName = document.getElementById("singlePlayerName").value;
+  document.getElementById("winningMsg").innerHTML = "Welcome" + " " + trueName;
+  // winMessage.target.innerText = singlePlayerName;
+}
+
+formBtn.addEventListener("click", displayName);
+console.log("name is logged");
+
+let restartBtn = document.getElementById("restartBtn");
+restartBtn.style.visibility = "none";
+document.getElementById("grid").style.visibility = "visible";
+
+// document.getElementById("grid").style.visibility = "hidden";
+let grid = document.getElementById("grid");
+grid.style.visibility = "none";
+// function revealBoard(){
+
+// }
 
 const score = document.getElementsByClassName("score-container");
 
-let restartBtn = document.getElementById("restartBtn");
-restartBtn.style.visibility = "hidden";
-
 let cells = Array.from(document.getElementsByClassName("cell"));
 
-document.getElementById("grid").style.visibility = "hidden";
+//single player vs computer mode selection
 
-const singlePlayer = document.getElementById("singlePlayer");
 singlePlayer.addEventListener("click", () => {
   vsComputer = true;
-  let grid = document.getElementById("grid");
-  grid.addEventListener("click", emptyCell);
+  // let grid = document.getElementById("grid");
+  // grid.addEventListener("click", emptyCell);
+  singlePlayer.style.visibility = "hidden";
+  twoPlayer.style.visibility = "hidden";
+  singlePlayerForm.style.visibility = "visible";
 });
-const twoPlayer = document.getElementById("twoPlayer");
+
+//multiplayer mode selection
 twoPlayer.addEventListener("click", () => {
   vsComputer = false;
   let grid = document.getElementById("grid");
   grid.addEventListener("click", emptyCell);
 });
 
-function emptyCell() {}
-
-document.getElementById("grid").style.visibility = "visible";
-
-for (let i = 0; i < cells.length; i++) {}
-
+//reassign current player to x based on game mode
 const gameArea = document.getElementById("grid");
 gameArea.addEventListener("click", function (emptyCell) {
   if (emptyCell.target.matches(".cell")) {
@@ -72,6 +109,7 @@ gameArea.addEventListener("click", function (emptyCell) {
   }
 });
 
+//vsComputer selects random cells
 function computerMove() {
   let randomNum = Math.floor(Math.random() * 9);
   console.log(cells[randomNum].innerText);
@@ -87,17 +125,6 @@ function computerMove() {
 function setGameMode(event) {
   console.log("button clicked");
 }
-
-const winningCells = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 4, 8],
-  [2, 4, 6],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-];
 
 function gameWon() {
   let cell0 = document.getElementById("0");
@@ -229,10 +256,12 @@ function resetGrid() {
   winMessage.innerText = "Game On!";
 }
 
-// function winMsg(playerWon) {}
-//   let message = `Congratulations, ${playerWon} wins!`;
-//   winMessage.innerText = message;
-//   winMessage.style.display = "visible";
-//get access to winmsg element
-//place our display message inside the winmsg element
-//change the visibilty to visible
+//game display as follows:
+//user selects game mode, game mode buttons disappear on click
+//form appears for name input(s), forms disappear on submit
+//display name inputs
+//display gameboard
+//display score with winning trophy icon
+//display message of game winner
+//display restart button or switch game mode
+//repeats
