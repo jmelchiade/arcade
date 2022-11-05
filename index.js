@@ -8,6 +8,7 @@ const playerTwo = "O";
 let currentPlayer = playerOne;
 let gameMode = false;
 let trueName = "";
+let trueNameTwo = "";
 const winningCells = [
   [0, 1, 2],
   [3, 4, 5],
@@ -20,64 +21,76 @@ const winningCells = [
 ];
 
 //DOM Variables
-// window.onload = function () {
-//   let username = window.prompt("Enter Player Name");
-//   document.getElementById("winningMsg").innerHTML = "Welcome " + username;
-// };
-
 let singlePlayerForm = document.getElementById("singlePlayerForm");
 let singlePlayerName = document.getElementById("singlePlayerName");
 let formBtn = document.getElementById("formBtn");
+let multiPlayerForm = document.getElementById("multiPlayerForm");
+let multiPlayerName = document.getElementById("multiPlayerName");
+let mpFormBtn = document.getElementById("mpFormBtn");
 let winMessage = document.getElementById("winningMsg");
 const singlePlayer = document.getElementById("singlePlayer");
 const twoPlayer = document.getElementById("twoPlayer");
+const gameContainer = document.getElementsByClassName("gameboardContainer");
+let restartBtn = document.getElementById("restartBtn");
+const score = document.getElementsByClassName("score-container");
+let cells = Array.from(document.getElementsByClassName("cell"));
 
 singlePlayerForm.addEventListener("submit", (e) => {
   e.preventDefault();
   console.log("form submitted");
 });
 
+multiPlayerForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  console.log("mpform submitted");
+});
+
 function displayName() {
-  // winMessage.innerHTML = singlePlayerName.
   trueName = document.getElementById("singlePlayerName").value;
-  document.getElementById("winningMsg").innerHTML = "Welcome" + " " + trueName;
-  // winMessage.target.innerText = singlePlayerName;
+  document.getElementById("winningMsg").innerHTML =
+    "Welcome" + " " + trueName + "," + " " + "let's" + " " + "play!";
+}
+
+function displayNameMp() {
+  // trueName = document.getElementById("singlePlayerName").value;
+  trueNameTwo = document.getElementById("multiPlayerName").value;
+  document.getElementById("winningMsg").innerHTML =
+    "Welcome" +
+    " " +
+    trueName +
+    " " +
+    trueNameTwo +
+    "," +
+    " " +
+    "game" +
+    " " +
+    "on!";
 }
 
 formBtn.addEventListener("click", displayName);
 console.log("name is logged");
 
-let restartBtn = document.getElementById("restartBtn");
+mpFormBtn.addEventListener("click", displayNameMp);
+console.log("mp names are logged");
+
 restartBtn.style.visibility = "none";
-document.getElementById("grid").style.visibility = "visible";
-
-// document.getElementById("grid").style.visibility = "hidden";
-let grid = document.getElementById("grid");
-grid.style.visibility = "none";
-// function revealBoard(){
-
-// }
-
-const score = document.getElementsByClassName("score-container");
-
-let cells = Array.from(document.getElementsByClassName("cell"));
 
 //single player vs computer mode selection
 
 singlePlayer.addEventListener("click", () => {
   vsComputer = true;
-  // let grid = document.getElementById("grid");
-  // grid.addEventListener("click", emptyCell);
   singlePlayer.style.visibility = "hidden";
   twoPlayer.style.visibility = "hidden";
   singlePlayerForm.style.visibility = "visible";
+  document.getElementById("grid").style.visibility = "visible";
 });
 
 //multiplayer mode selection
 twoPlayer.addEventListener("click", () => {
   vsComputer = false;
   let grid = document.getElementById("grid");
-  grid.addEventListener("click", emptyCell);
+  multiPlayerForm.style.visibility = "visible";
+  // grid.addEventListener("click", emptyCell);
 });
 
 //reassign current player to x based on game mode
@@ -90,7 +103,8 @@ gameArea.addEventListener("click", function (emptyCell) {
       console.log("cell selected");
 
       emptyCell.target.innerText = currentPlayer;
-
+      singlePlayerForm.style.visibility = "hidden";
+      multiPlayerForm.style.visibility = "hidden";
       if (currentPlayer === "X") {
         if (vsComputer === true) {
           computerMove();

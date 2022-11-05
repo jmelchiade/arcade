@@ -41,8 +41,9 @@ h1 {
 }
 
 h2 {
-  padding-top: 30px;
-  padding-bottom: 50px;
+  padding-top: 0px;
+  padding-bottom: 10px;
+  margin-top: 50px;
   display: flex;
   justify-content: center;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -57,12 +58,20 @@ h2 {
   align-items: center;
   flex-direction: column;
   background-color: rgb(46, 43, 115);
+  margin-bottom: -50px;
 }
 
 .gameboardContainer {
-  display: none;
+  visibility: hidden;
 }
 
+#grid {
+  visibility: hidden;
+}
+
+.topContainer {
+  margin-top: 0;
+}
 .container-btm {
   padding: 21px;
   display: flex;
@@ -92,6 +101,10 @@ button:hover {
   font-size: larger;
   transition: 0.3s;
   cursor: pointer;
+}
+
+#switchGameMode {
+  visibility: hidden;
 }
 
 #singlePlayerForm {
@@ -129,4 +142,28 @@ button:hover {
 
 #singlePlayerForm {
   visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin-bottom: -30px;
+}
+
+#multiPlayerForm {
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin-bottom: -30px;
+}
+
+#formBtn {
+  margin-top: -20px;
+}
+
+#mpFormBtn {
+  margin-top: -20px;
 }

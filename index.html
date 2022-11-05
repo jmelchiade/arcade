@@ -22,7 +22,21 @@
         /><br /><br />
         <button id="formBtn" type="submit">submit</button>
       </form>
-      <h2 id="winningMsg">Game On!</h2>
+      <form id="multiPlayerForm">
+        <label for="mpname"></label>
+        <input
+          type="text"
+          id="multiPlayerName"
+          placeholder="Player One Name"
+        /><br />
+        <input
+          type="text"
+          id="multiPlayerName"
+          placeholder="Player Two Name"
+        /><br /><br />
+        <button id="mpFormBtn" type="submit">submit</button>
+      </form>
+      <h2 id="winningMsg">Tic Tac Toe</h2>
     </div>
     <div class="gameboardContainer">
       <div class="gameboard">
@@ -41,6 +55,7 @@
       </div>
       <div class="container-btm">
         <button id="restartBtn">Restart Game</button>
+        <button id="switchGameMode">Switch Game Mode</button>
       </div>
     </div>
     <script defer src="index.js"></script>
