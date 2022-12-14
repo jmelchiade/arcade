@@ -98,10 +98,6 @@ const gameArea = document.getElementById("grid");
 gameArea.addEventListener("click", function (emptyCell) {
   if (emptyCell.target.matches(".cell")) {
     if (emptyCell.target.innerText === "") {
-      console.log(typeof emptyCell.target.innerText);
-
-      console.log("cell selected");
-
       emptyCell.target.innerText = currentPlayer;
       singlePlayerForm.style.visibility = "hidden";
       multiPlayerForm.style.visibility = "hidden";
@@ -126,7 +122,6 @@ gameArea.addEventListener("click", function (emptyCell) {
 //vsComputer selects random cells
 function computerMove() {
   let randomNum = Math.floor(Math.random() * 9);
-  console.log(cells[randomNum].innerText);
 
   if (cells[randomNum].innerText === "") {
     cells[randomNum].innerText = "O";
@@ -258,6 +253,8 @@ function endOfGame() {
     restartBtn.style.visibility = "visible";
     restartBtn.addEventListener("click", resetGrid);
   }
+  singlePlayer.style.visibility = "visible";
+  twoPlayer.style.visibility = "visible";
 }
 
 function resetGrid() {
